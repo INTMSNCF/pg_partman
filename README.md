@@ -11,9 +11,7 @@ Optional retention policy can automatically drop partitions no longer needed for
 
 A background worker (BGW) process is included to automatically run partition maintenance without the need of an external scheduler (cron, etc) in most cases.
 
-Bug reports & feature requests can be directed to the Issues section on Github - https://github.com/pgpartman/pg_partman/issues
-
-For questions, comments, or if you're just not sure where to post, please use the Discussions section on Github. Feel free to post here no matter how minor you may feel your issue or question may be - https://github.com/pgpartman/pg_partman/discussions
+All bug reports, feature requests and general questions can be directed to the Issues section on Github. Please feel free to post here no matter how minor you may feel your issue or question may be. - https://github.com/pgpartman/pg_partman/issues
 
 If you're looking for a partitioning system that handles any range type beyond just time & serial, the new native partitioning features in PostgreSQL 10+ are likely the best method for the foreseeable future. If this is something critical to your environment, start planning your upgrades now!
 
@@ -23,7 +21,7 @@ INSTALLATION
 ------------
 Requirement: 
 
- * PostgreSQL >= 10
+ * PostgreSQL >= 9.5
 
 Recommended: 
 
@@ -62,15 +60,12 @@ As of version 4.1.0, pg_partman no longer requires a superuser to run for native
     GRANT EXECUTE ON ALL FUNCTIONS IN SCHEMA partman TO partman;
     GRANT EXECUTE ON ALL PROCEDURES IN SCHEMA partman TO partman;  -- PG11+ only
     GRANT ALL ON SCHEMA my_partition_schema TO partman;
-    GRANT TEMPORARY ON DATABASE mydb to partman; -- allow creation of temp tables to move data out of default 
 
 If you need the role to also be able to create schemas, you will need to grant create on the database as well. In general this shouldn't be required as long as you give the above role CREATE privileges on any pre-existing schemas that will contain partition sets.
 
     GRANT CREATE ON DATABASE mydb TO partman;
 
-I've received many requests for being able to install this extension on Amazon RDS. As of PostgreSQL 12.5, RDS has made the pg_partman extension available. Many thanks to the RDS team for including this extension in their environment!
-
-https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL_Partitions.html
+I've received many requests for being able to install this extension on Amazon RDS. RDS does not support third-party extension management outside of the ones it has approved and provides itself. Therefore, I cannot provide support for running this extension in RDS if the limitations are RDS related. If you'd like to see this extension available there, please send an email to rds-postgres-extensions-request@amazon.com requesting that they include it. The more people that do so, the more likely it will happen!
 
 UPGRADE
 -------
@@ -83,15 +78,10 @@ If you are doing a pg_dump/restore and you've upgraded pg_partman in place from 
 
 If upgrading between any major versions of pg_partman (2.x -> 3.x, etc), please carefully read all intervening version notes in the CHANGELOG, especially those notes for the major version. There are often additional instructions (Ex. updating trigger functions) and other important considerations for the updates.
 
-IMPORTANT NOTE: Some updates to pg_partman must drop and recreate its own database objects. If you are revoking PUBLIC privileges from functions/procedures, that can be added back to objects that are recreated as part of an update. If restrictions from PUBLIC use are desired for pg_partman, it is recommended to install it into its own schema as shown above and the revoke undesired access to that schema. Otherwise you may have to add an additional step to your extension upgrade procedures to revoke PUBLIC access again.
-
 EXAMPLES
 --------
-For setting up native partitioning with pg_partman on a brand new table, or to migrate an existing normal table to native partitioning, see [pg_partman_howto_native.md](doc/pg_partman_howto_native.md).
 
-For migrating a trigger-based partitioned table to native partitioning using pg_partman, see [migrate_to_native.md](doc/migrate_to_native.md).
-
-Other HowTo documents are also available in the documents folder.
+Please see the [pg_partman_howto.md file](doc/pg_partman_howto.md) in the doc folder for examples on how to setup partitioning. 
 
 See the [pg_partman.md file](doc/pg_partman.md) in the doc folder for full details on all commands and options for pg_partman.
 

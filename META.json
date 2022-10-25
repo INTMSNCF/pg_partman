@@ -1,9 +1,9 @@
 {
     "name": "pg_partman",
     "abstract": "Extension to manage partitioned tables by time or ID",
-    "version": "4.7.1",
+    "version": "4.3.0",
     "maintainer": [ 
-        "Keith Fiske <keith@keithf4.com>"
+        "Keith Fiske <keith@omniti.com>"
     ],
     "license": "postgresql",
     "generated_by": "Keith Fiske",
@@ -11,28 +11,28 @@
     "prereqs": {
         "runtime": {
             "requires": {
-                "PostgreSQL": "9.6.0"
+                "PostgreSQL": "9.4.0"
             },
             "recommends": {
-                "pg_jobmon": "1.4.1"
+                "pg_jobmon": "1.3.2"
             }
         }
     },
     "provides": {
         "pg_partman": {
-            "file": "sql/pg_partman--4.7.1.sql",
+            "file": "sql/pg_partman--4.3.0.sql",
             "docfile": "doc/pg_partman.md",
-            "version": "4.7.1",
+            "version": "4.3.0",
             "abstract": "Extension to manage partitioned tables by time or ID"
         }
     },
     "resources": {
         "bugtracker": {
-            "web": "https://github.com/pgpartman/pg_partman/issues"
+            "web": "https://github.com/keithf4/pg_partman/issues"
         },
         "repository": {
-            "url": "git://github.com/pgpartman/pg_partman.git" ,
-            "web": "https://github.com/pgpartman/pg_partman",
+            "url": "git://github.com/keithf4/pg_partman.git" ,
+            "web": "https://github.com/keithf4/pg_partman",
             "type": "git"
         }
     },    
