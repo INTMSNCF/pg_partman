@@ -1,8 +1,8 @@
 {
     "name": "pg_partman",
     "abstract": "Extension to manage partitioned tables by time or ID",
-    "version": "4.3.0",
-    "maintainer": [ 
+    "version": "4.3.0-fix-CVE-2021-33204",
+    "maintainer": [
         "Keith Fiske <keith@omniti.com>"
     ],
     "license": "postgresql",
@@ -20,9 +20,9 @@
     },
     "provides": {
         "pg_partman": {
-            "file": "sql/pg_partman--4.3.0.sql",
+            "file": "sql/pg_partman--4.3.0-fix-CVE-2021-33204.sql",
             "docfile": "doc/pg_partman.md",
-            "version": "4.3.0",
+            "version": "4.3.0-fix-CVE-2021-33204",
             "abstract": "Extension to manage partitioned tables by time or ID"
         }
     },
@@ -35,7 +35,7 @@
             "web": "https://github.com/keithf4/pg_partman",
             "type": "git"
         }
-    },    
+    },
     "meta-spec": {
       "version": "1.0.0",
       "url": "http://pgxn.org/meta/spec.txt"

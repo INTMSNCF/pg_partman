@@ -7,7 +7,7 @@ CREATE TABLE @extschema@.part_config (
     , premake int NOT NULL DEFAULT 4
     , optimize_trigger int NOT NULL DEFAULT 4
     , optimize_constraint int NOT NULL DEFAULT 30
-    , epoch text NOT NULL DEFAULT 'none' 
+    , epoch text NOT NULL DEFAULT 'none'
     , inherit_fk boolean NOT NULL DEFAULT true
     , retention text
     , retention_schema text
@@ -15,7 +15,7 @@ CREATE TABLE @extschema@.part_config (
     , retention_keep_index boolean NOT NULL DEFAULT true
     , infinite_time_partitions boolean NOT NULL DEFAULT false
     , datetime_string text
-    , automatic_maintenance text NOT NULL DEFAULT 'on' 
+    , automatic_maintenance text NOT NULL DEFAULT 'on'
     , jobmon boolean NOT NULL DEFAULT true
     , sub_partition_set_full boolean NOT NULL DEFAULT false
     , undo_in_progress boolean NOT NULL DEFAULT false
@@ -36,7 +36,7 @@ SELECT pg_catalog.pg_extension_config_dump('part_config', '');
 
 -- FK set deferrable because create_parent() & create_sub_parent() inserts to this table before part_config
 CREATE TABLE @extschema@.part_config_sub (
-    sub_parent text 
+    sub_parent text
     , sub_partition_type text NOT NULL
     , sub_control text NOT NULL
     , sub_partition_interval text NOT NULL
@@ -44,14 +44,14 @@ CREATE TABLE @extschema@.part_config_sub (
     , sub_premake int NOT NULL DEFAULT 4
     , sub_optimize_trigger int NOT NULL DEFAULT 4
     , sub_optimize_constraint int NOT NULL DEFAULT 30
-    , sub_epoch text NOT NULL DEFAULT 'none' 
+    , sub_epoch text NOT NULL DEFAULT 'none'
     , sub_inherit_fk boolean NOT NULL DEFAULT true
     , sub_retention text
     , sub_retention_schema text
     , sub_retention_keep_table boolean NOT NULL DEFAULT true
     , sub_retention_keep_index boolean NOT NULL DEFAULT true
     , sub_infinite_time_partitions boolean NOT NULL DEFAULT false
-    , sub_automatic_maintenance text NOT NULL DEFAULT 'on' 
+    , sub_automatic_maintenance text NOT NULL DEFAULT 'on'
     , sub_jobmon boolean NOT NULL DEFAULT true
     , sub_trigger_exception_handling BOOLEAN DEFAULT false
     , sub_upsert TEXT NOT NULL DEFAULT ''
@@ -65,7 +65,7 @@ CREATE TABLE @extschema@.part_config_sub (
 );
 SELECT pg_catalog.pg_extension_config_dump('part_config_sub', '');
 
--- Ensure the control column cannot be one of the additional constraint columns. 
+-- Ensure the control column cannot be one of the additional constraint columns.
 ALTER TABLE @extschema@.part_config ADD CONSTRAINT control_constraint_col_chk CHECK ((constraint_cols @> ARRAY[control]) <> true);
 ALTER TABLE @extschema@.part_config_sub ADD CONSTRAINT control_constraint_col_chk CHECK ((sub_constraint_cols @> ARRAY[sub_control]) <> true);
 
@@ -81,7 +81,7 @@ CREATE INDEX custom_time_partitions_partition_range_idx ON @extschema@.custom_ti
 SELECT pg_catalog.pg_extension_config_dump('custom_time_partitions', '');
 
 /*
- * Custom view to help improve privilege lookups for pg_partman. 
+ * Custom view to help improve privilege lookups for pg_partman.
  * information_schema is a performance bottleneck since indexes aren't being used properly.
  */
 CREATE OR REPLACE VIEW @extschema@.table_privs AS
@@ -112,7 +112,7 @@ CREATE OR REPLACE VIEW @extschema@.table_privs AS
 
 -- Put constraint functions & definitions here because having them in a separate file makes the ordering of their creation harder to control. Some require the above tables to exist first.
 
-/* 
+/*
  * Check for valid config values for automatic maintenance
  * (not boolean to allow future values)
  */
@@ -141,6 +141,7 @@ CHECK (@extschema@.check_automatic_maintenance_value(sub_automatic_maintenance))
  */
 CREATE FUNCTION @extschema@.check_epoch_type (p_type text) RETURNS boolean
     LANGUAGE plpgsql IMMUTABLE SECURITY DEFINER
+    SET search_path TO pg_catalog, pg_temp
     AS $$
 DECLARE
 v_result    boolean;
@@ -151,11 +152,11 @@ END
 $$;
 
 ALTER TABLE @extschema@.part_config
-ADD CONSTRAINT part_config_epoch_check 
+ADD CONSTRAINT part_config_epoch_check
 CHECK (@extschema@.check_epoch_type(epoch));
 
 ALTER TABLE @extschema@.part_config_sub
-ADD CONSTRAINT part_config_sub_epoch_check 
+ADD CONSTRAINT part_config_sub_epoch_check
 CHECK (@extschema@.check_epoch_type(sub_epoch));
 
 
@@ -164,6 +165,7 @@ CHECK (@extschema@.check_epoch_type(sub_epoch));
  */
 CREATE OR REPLACE FUNCTION @extschema@.check_partition_type (p_type text) RETURNS boolean
     LANGUAGE plpgsql IMMUTABLE SECURITY DEFINER
+    SET search_path TO pg_catalog, pg_temp
     AS $$
 DECLARE
 v_result    boolean;
@@ -174,11 +176,9 @@ END
 $$;
 
 ALTER TABLE @extschema@.part_config
-ADD CONSTRAINT part_config_type_check 
+ADD CONSTRAINT part_config_type_check
 CHECK (@extschema@.check_partition_type(partition_type));
 
 ALTER TABLE @extschema@.part_config_sub
 ADD CONSTRAINT part_config_sub_type_check
 CHECK (@extschema@.check_partition_type(sub_partition_type));
-
-
