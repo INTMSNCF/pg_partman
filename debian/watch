@@ -1,0 +1,3 @@
+version=3
+https://github.com/keithf4/pg_partman/releases .*/v?(.*).tar.gz
+#http://pgxn.org/dist/pg_partman/ .*/pg_partman-(.*).zip

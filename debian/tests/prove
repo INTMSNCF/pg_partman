@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -e
+
+case $USER in
+	root) PGUSER=postgres ;;
+	*)    PGUSER=$USER ;;
+esac
+
+for v in $(pg_buildext supported-versions); do
+	pg_virtualenv -v $v \
+	-o "shared_preload_libraries=pg_partman_bgw" \
+	-o "pg_partman_bgw.dbname=postgres" \
+	-o "pg_partman_bgw.interval=10" \
+	-o "pg_partman_bgw.role=$PGUSER" <<-EOF
+		set -ex
+		psql -c "CREATE EXTENSION pgtap"
+		psql -c "CREATE EXTENSION pg_partman"
+		# run one of the normal tests
+		pg_prove -ovf test/test-id.sql
+		# run one of the bgw tests
+		pg_prove -ovf test/test_bgw/test-time-daily-bgw.sql
+	EOF
+done

@@ -1,0 +1,7 @@
+Depends: @, libtap-parser-sourcehandler-pgtap-perl, postgresql-PGVERSION-pgtap, postgresql-server-dev-all
+Tests: prove
+Restrictions: allow-stderr
+
+Depends: @
+Tests: scripts
+Restrictions: allow-stderr

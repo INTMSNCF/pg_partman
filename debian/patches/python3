@@ -1,0 +1,64 @@
+--- a/bin/common/check_unique_constraint.py
++++ b/bin/common/check_unique_constraint.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ 
+ import argparse, collections, psycopg2, sys, tempfile
+ 
+--- a/bin/common/dump_partition.py
++++ b/bin/common/dump_partition.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ 
+ import argparse, hashlib, os, os.path, psycopg2, subprocess, sys
+ 
+--- a/bin/pg10/partition_data.py
++++ b/bin/pg10/partition_data.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ 
+ import argparse, psycopg2, time, signal, sys
+ 
+--- a/bin/pg10/reapply_constraints.py
++++ b/bin/pg10/reapply_constraints.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ 
+ import argparse, psycopg2, sys, time
+ from multiprocessing import Process
+--- a/bin/pg10/reapply_foreign_keys.py
++++ b/bin/pg10/reapply_foreign_keys.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ 
+ import argparse, psycopg2, sys
+ 
+--- a/bin/common/reapply_indexes.py
++++ b/bin/common/reapply_indexes.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ 
+ import argparse, psycopg2, re, sys, time
+ from multiprocessing import Process
+--- a/bin/pg10/undo_partition.py
++++ b/bin/pg10/undo_partition.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ 
+ import argparse, psycopg2, signal, sys, time
+ 
+--- a/bin/common/vacuum_maintenance.py
++++ b/bin/common/vacuum_maintenance.py
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env python
++#!/usr/bin/python3
+ 
+ import argparse, psycopg2, sys
+ 

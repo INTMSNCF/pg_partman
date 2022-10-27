@@ -1,0 +1,174 @@
+pg-partman (4.3.0-fix-CVE-2021-33204) unstable; urgency=higth
+
+  * FIX CVE-2021-33204.
+
+ -- Henry GALVEZ (@alograg) <henry.galvez@intm.fr>  Thu, 27 Oct 2022 11:00:00 -0200
+
+pg-partman (4.3.0-1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Christoph Berg <myon@debian.org>  Mon, 10 Feb 2020 11:44:03 +0100
+
+pg-partman (4.2.2-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Upload for PostgreSQL 12.
+
+ -- Christoph Berg <myon@debian.org>  Thu, 31 Oct 2019 11:47:22 +0100
+
+pg-partman (4.2.0-1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Christoph Berg <myon@debian.org>  Mon, 26 Aug 2019 11:45:00 +0200
+
+pg-partman (4.1.0-1) experimental; urgency=medium
+
+  * New upstream version.
+  * Add debian/gitlab-ci.yml.
+
+ -- Christoph Berg <myon@debian.org>  Mon, 20 May 2019 15:03:56 +0200
+
+pg-partman (4.0.0-1) unstable; urgency=medium
+
+  * Upload for PostgreSQL 11.
+  * debian/watch: Make "v" prefix optional.
+
+ -- Christoph Berg <myon@debian.org>  Sun, 14 Oct 2018 21:57:45 +0200
+
+pg-partman (3.2.1-2) unstable; urgency=medium
+
+  * Use python3 for scripts, and depend on python3-psycopg2.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Fri, 28 Sep 2018 13:12:45 +0200
+
+pg-partman (3.2.1-1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Wed, 18 Jul 2018 12:49:52 +0200
+
+pg-partman (3.2.0-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Move maintainer address to team+postgresql@tracker.debian.org.
+
+ -- Christoph Berg <myon@debian.org>  Sun, 08 Jul 2018 17:57:50 +0200
+
+pg-partman (3.1.3-1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Fri, 20 Apr 2018 09:34:02 +0200
+
+pg-partman (3.1.2-1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Mon, 05 Feb 2018 09:20:07 +0100
+
+pg-partman (3.1.1-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Move packaging repository to salsa.debian.org
+
+ -- Christoph Berg <myon@debian.org>  Mon, 22 Jan 2018 20:38:41 +0100
+
+pg-partman (3.1.0-1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Christoph Berg <myon@debian.org>  Wed, 04 Oct 2017 22:19:47 +0200
+
+pg-partman (3.0.2-2) unstable; urgency=medium
+
+  * Upload with PostgreSQL 10 support.
+
+ -- Christoph Berg <myon@debian.org>  Tue, 26 Sep 2017 19:06:26 +0200
+
+pg-partman (3.0.2-1) experimental; urgency=medium
+
+  * New upstream version.
+
+ -- Christoph Berg <myon@debian.org>  Thu, 15 Jun 2017 17:37:48 +0200
+
+pg-partman (3.0.1-1) experimental; urgency=medium
+
+  * Team upload.
+  * New upstream version.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Tue, 11 Apr 2017 16:19:21 +0200
+
+pg-partman (2.6.4-1) experimental; urgency=medium
+
+  * New upstream version.
+
+ -- Adrian Vondendriesch <adrian.vondendriesch@credativ.de>  Sat, 18 Mar 2017 15:29:57 +0100
+
+pg-partman (2.6.3-1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Christoph Berg <myon@debian.org>  Tue, 03 Jan 2017 21:49:57 +0100
+
+pg-partman (2.6.2-1) unstable; urgency=medium
+
+  * New upstream version with 9.6 support. Closes: #839339.
+
+ -- Christoph Berg <myon@debian.org>  Sat, 17 Dec 2016 23:59:24 +0100
+
+pg-partman (2.6.0-1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Adrian Vondendriesch <adrian.vondendriesch@credativ.de>  Thu, 08 Sep 2016 11:39:59 +0200
+
+pg-partman (2.5.1-1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Adrian Vondendriesch <adrian.vondendriesch@credativ.de>  Mon, 08 Aug 2016 20:11:21 +0200
+
+pg-partman (2.4.1-1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Adrian Vondendriesch <adrian.vondendriesch@credativ.de>  Wed, 06 Jul 2016 22:01:42 +0200
+
+pg-partman (2.3.4-1) unstable; urgency=medium
+
+  * New upstream version.
+  * Add myself to Uploaders.
+
+ -- Adrian Vondendriesch <adrian.vondendriesch@credativ.de>  Fri, 27 May 2016 20:22:57 +0200
+
+pg-partman (2.3.3-1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Christoph Berg <myon@debian.org>  Sat, 30 Apr 2016 14:10:57 +0200
+
+pg-partman (2.3.2-1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Christoph Berg <myon@debian.org>  Fri, 01 Apr 2016 22:44:50 +0200
+
+pg-partman (2.3.1-1) unstable; urgency=medium
+
+  * New upstream version.
+
+ -- Christoph Berg <christoph.berg@credativ.de>  Wed, 16 Mar 2016 16:35:15 +0100
+
+pg-partman (2.2.2-2) unstable; urgency=medium
+
+  * Upload with 9.5 support.
+
+ -- Christoph Berg <myon@debian.org>  Sat, 16 Jan 2016 08:33:57 +0100
+
+pg-partman (2.2.2-1) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Christoph Berg <myon@debian.org>  Thu, 31 Dec 2015 15:10:55 +0100

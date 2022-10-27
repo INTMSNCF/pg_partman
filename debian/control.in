@@ -1,0 +1,25 @@
+Source: pg-partman
+Section: database
+Priority: optional
+Maintainer: Debian PostgreSQL Maintainers <team+postgresql@tracker.debian.org>
+Uploaders:
+ Christoph Berg <myon@debian.org>,
+ Adrian Vondendriesch <adrian.vondendriesch@credativ.de>,
+ Henry GALVEZ (@alograg) <henry.galvez@intm.fr>,
+Build-Depends: debhelper (>= 9), postgresql-server-dev-all (>= 153~)
+Standards-Version: 4.3.0-fix-CVE-2021-33204
+Vcs-Browser: https://salsa.debian.org/postgresql/pg-partman
+Vcs-Git: https://salsa.debian.org/postgresql/pg-partman.git
+
+Package: postgresql-PGVERSION-partman
+Architecture: any
+Depends: postgresql-PGVERSION, python3, python3-psycopg2, ${misc:Depends}, ${shlibs:Depends}
+Description: PostgreSQL Partition Manager
+ pg_partman is a PostgreSQL extension to create and manage both time-based and
+ serial-based table partition sets. Sub-partitioning is also supported. Child
+ table & trigger function creation is all managed by the extension itself.
+ Tables with existing data can also have their data partitioned in easily
+ managed smaller batches. Optional retention policy can automatically drop
+ partitions no longer needed. A background worker (BGW) process is included to
+ automatically run partition maintenance without the need of an external
+ scheduler (cron, etc) in most cases.
