@@ -4,7 +4,7 @@
     "version": "4.3.0-fix-CVE-2021-33204",
     "maintainer": [
         "Keith Fiske <keith@omniti.com>",
-        "Henry GALVEZ (@alograg) <henry.galvez@intm.fr>",
+        "Henry GALVEZ (@alograg) <henry.galvez@intm.fr>"
     ],
     "license": "postgresql",
     "generated_by": "Keith Fiske",
